@@ -15,7 +15,12 @@ const todos = (state =initialState, action) => {
                 ],
             };
             case "DELETE_TODO":
-                return{};
+                const todos= state.data.filter((todo)=>todo.id !==action.id);
+// it will delete only the selected todo and will leave everything as it is (action.id part)
+                return{
+                    ...state,
+                    data:todos,
+                };
                 default:
                     return state;
     }
